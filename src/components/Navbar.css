@@ -1,0 +1,100 @@
+.navbar {
+  height: 60px;
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* Hamburger */
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Logo */
+.left-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-area img {
+  width: 40px;
+}
+
+.logo-area h2 {
+  margin-left: 10px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Search */
+.search-area {
+  position: relative;
+  width: 300px;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 10px 45px 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-area .search-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-area .search-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Right side icons */
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-btn,
+.profile-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.icon-btn img,
+.profile-btn img {
+  width: 28px;
+  height: 28px;
+}

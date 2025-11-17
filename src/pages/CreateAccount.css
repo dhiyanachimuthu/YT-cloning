@@ -1,0 +1,21 @@
+.create {
+  width: 300px;
+  margin: auto;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create input {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.create button {
+  padding: 10px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

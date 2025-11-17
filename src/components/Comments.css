@@ -1,0 +1,29 @@
+.comments {
+  margin-top: 20px;
+}
+
+.comment-input {
+  display: flex;
+  gap: 10px;
+}
+
+.comment-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.comment-input button {
+  padding: 8px 12px;
+  border: none;
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+
+.comment-list p {
+  background: #f2f2f2;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+}

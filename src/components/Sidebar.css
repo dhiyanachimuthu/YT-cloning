@@ -1,0 +1,46 @@
+/* Main sidebar */
+.sidebar {
+  width: 220px;
+  background: #ffffff;
+  height: 100vh;
+  padding-top: 20px;
+  border-right: 1px solid #ddd;
+  transition: width 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+  position: fixed;
+  top: 60px; /* under navbar */
+  left: 0;
+}
+
+/* When collapsed */
+.sidebar.closed {
+  width: 70px;
+}
+
+/* Menu item */
+.sidebar p {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #222;
+  transition: background 0.3s ease, padding-left 0.2s ease;
+}
+
+/* Hover effect */
+.sidebar p:hover {
+  background: #f2f2f2;
+}
+
+/* Icons */
+.sidebar img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hide label when collapsed */
+.sidebar.closed p span {
+  display: none;
+}

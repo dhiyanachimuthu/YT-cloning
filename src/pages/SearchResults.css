@@ -1,0 +1,9 @@
+.search-results h2 {
+  margin-bottom: 20px;
+}
+
+.results-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

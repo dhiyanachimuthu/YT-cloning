@@ -1,0 +1,9 @@
+.liked-list h2 {
+  margin-bottom: 20px;
+}
+
+.liked-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

@@ -1,0 +1,9 @@
+.saved-list h2 {
+  margin-bottom: 20px;
+}
+
+.saved-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

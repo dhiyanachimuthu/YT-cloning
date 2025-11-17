@@ -1,0 +1,8 @@
+.video-player-page iframe {
+  border-radius: 10px;
+}
+
+.video-player-page h2 {
+  margin-top: 15px;
+  font-size: 22px;
+}

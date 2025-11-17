@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+/* Whole app */
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Layout below navbar */
+.app-layout {
+  display: flex;
+  height: calc(100vh - 60px);
+  transition: margin-left 0.3s ease;
+  padding-top: 60px; /* navbar height */
+}
+
+/* When sidebar open → push/move page like YouTube */
+.app-layout.sidebar-open {
+  margin-left: 10px;
+}
+
+/* When sidebar closed → only small width */
+.app-layout.sidebar-closed {
+  margin-left: 70px;
+}
+
+/* Content area (videos) */
+.app-pages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+/* When sidebar is open (full width 220px) */
+.app-layout.sidebar-open .app-pages {
+  margin-left: 220px;
+}
+
+/* When sidebar is closed (collapsed width 70px) */
+.app-layout.sidebar-closed .app-pages {
+  margin-left: 70px;
+}
+.app-layout {
+  display: flex;
+  transition: margin-left 0.3s ease;
+}
+
+.app-layout.sidebar-open .app-pages {
+  margin-left: 220px;
+}
+
+.app-layout.sidebar-closed .app-pages {
+  margin-left: 30px;
+}
