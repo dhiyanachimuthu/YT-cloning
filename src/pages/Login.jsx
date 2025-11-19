@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import googleLoginImg from "../assets/assets/g-logo.webp";
 import "./Login.css";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const navigate = useNavigate();
@@ -13,15 +13,21 @@ export default function Login() {
       alert("Please enter email and password");
       return;
     }
+
+      if (!email.endsWith("@gmail.com")) {
+    alert("Email must be a valid Gmail address!");
+    return;
+  }
+
     alert("Logged in successfully!");
-    navigate("/"); // go to home
+    onLogin(); 
   };
 
   return (
     <div className="login">
       <h2>
         <img className="g-login-top" src={googleLoginImg} />
-        <br />Log In
+        <br /> Log In
       </h2>
 
       <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />

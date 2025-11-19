@@ -1,4 +1,4 @@
-.video-card {
+/* .video-card {
   width: 280px;
   margin-bottom: 20px;
   cursor: pointer;
@@ -25,4 +25,66 @@
   border: none;
   background: #eee;
   cursor: pointer;
+} */
+/* ----- VIDEO GRID ----- */
+.video-grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio */
+  background: linear-gradient(135deg, #ccc, #999);
+  border-radius: 10px;
+  position: relative;
+}
+
+.video-duration {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: white;
+}
+
+.video-info {
+  display: flex;
+  gap: 12px;
+}
+
+.profile-pic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+.video-title {
+  font-size: 14px;
+  margin: 0;
+}
+
+.video-meta {
+  font-size: 12px;
+  color: gray;
+}
+
+.dark-mode .thumbnail {
+  background: linear-gradient(135deg, #333, #111);
+}
+
+.dark-mode .video-meta {
+  color: #aaa;
 }

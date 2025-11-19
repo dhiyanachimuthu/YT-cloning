@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import Navbar from "./components/Navbar.jsx";
@@ -16,49 +16,64 @@ import SavedVideos from "./pages/SavedVideos.jsx";
 export default function App() {
   const location = useLocation();
 
+  // 🔥 new login state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setSidebarOpen((prev) => !prev);
-  };
-
-  const hideLayout =
-    location.pathname === "/login" ||
-    location.pathname === "/create-account";
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
 
   return (
     <div className="app">
+      {/* SHOW LOGIN OR CREATE ACCOUNT ONLY WHEN NOT LOGGED IN */}
+      {!isLoggedIn &&
+        (location.pathname === "/login" ||
+          location.pathname === "/create-account")}
 
-      {!hideLayout && <Navbar toggleSidebar={toggleSidebar} />}
+      {/* Navbar shows only when logged in */}
+      {isLoggedIn && <Navbar toggleSidebar={toggleSidebar} />}
 
       <div
         className={`app-layout ${
-          !hideLayout
+          isLoggedIn
             ? sidebarOpen
               ? "sidebar-open"
               : "sidebar-closed"
             : ""
         }`}
       >
+        {/* Sidebar only when logged in */}
+        {isLoggedIn && <Sidebar open={sidebarOpen} />}
 
-        {!hideLayout && <Sidebar sidebarOpen={sidebarOpen} />}
-
+        {/* ROUTES */}
         <div className="app-pages">
           <Routes>
+            {/* NOT LOGGED IN → redirect everything to LOGIN */}
+            {!isLoggedIn ? (
+              <>
+                <Route
+                  path="/login"
+                  element={<Login onLogin={() => setIsLoggedIn(true)} />}
+                />
+                <Route path="/create-account" element={<CreateAccount />} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
+              </>
+            ) : (
+              <>
+                {/* LOGGED IN ROUTES */}
+                <Route path="/" element={<Home />} />
+                <Route path="/search/:query" element={<SearchResults />} />
+                <Route path="/video/:id" element={<VideoPlayer />} />
+                <Route path="/liked" element={<LikedVideos />} />
+                <Route path="/saved" element={<SavedVideos />} />
 
-            {/* Default page */}
-            <Route path="/" element={<Home />} />
+                {/* BLOCK LOGIN & CREATE ACCOUNT */}
+                <Route path="/login" element={<Navigate to="/" />} />
+                <Route path="/create-account" element={<Navigate to="/" />} />
 
-            {/* Auth pages */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/create-account" element={<CreateAccount />} />
-
-            {/* Other pages */}
-            <Route path="/search/:query" element={<SearchResults />} />
-            <Route path="/video/:id" element={<VideoPlayer />} />
-            <Route path="/liked" element={<LikedVideos />} />
-            <Route path="/saved" element={<SavedVideos />} />
-
+                {/* ANY OTHER INVALID PATH */}
+                <Route path="*" element={<Navigate to="/" />} />
+              </>
+            )}
           </Routes>
         </div>
       </div>

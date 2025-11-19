@@ -1,0 +1,24 @@
+/* Dark mode styles */
+.dark-mode {
+  background: #0f0f0f;
+  color: white;
+}
+
+.dark-toggle-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 10px 14px;
+  border: none;
+  background: #222;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 1000;
+}
+
+.dark-toggle-btn:hover {
+  background: #333;
+}
+

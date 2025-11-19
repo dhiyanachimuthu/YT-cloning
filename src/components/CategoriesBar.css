@@ -1,0 +1,36 @@
+/* Categories Bar */
+.categories-bar {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 20px;
+  background: var(--bg-color, #fff);
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.categories-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.category-chip {
+  padding: 8px 16px;
+  background: #f2f2f2;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.category-chip:hover {
+  background: #e1e1e1;
+}
+
+.dark-mode .category-chip {
+  background: #222;
+  color: white;
+}
+
+.dark-mode .category-chip:hover {
+  background: #333;
+}

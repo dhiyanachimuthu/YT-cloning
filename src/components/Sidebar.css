@@ -1,46 +1,78 @@
-/* Main sidebar */
-.sidebar {
-  width: 220px;
-  background: #ffffff;
+/* SIDEBAR BASE */
+.yt-sidebar {
+  width: 240px;
   height: 100vh;
-  padding-top: 20px;
-  border-right: 1px solid #ddd;
-  transition: width 0.3s ease, transform 0.3s ease;
-  overflow: hidden;
+  background: white;
+  padding-top: 70px;
   position: fixed;
-  top: 60px; /* under navbar */
   left: 0;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  transition: width 0.25s ease;
 }
 
-/* When collapsed */
-.sidebar.closed {
+.yt-sidebar.closed {
   width: 70px;
 }
 
-/* Menu item */
-.sidebar p {
+/* INNER LIST */
+.yt-sidebar-inner {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 12px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  color: #222;
-  transition: background 0.3s ease, padding-left 0.2s ease;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
 }
 
-/* Hover effect */
-.sidebar p:hover {
+/* ITEM STYLE */
+.yt-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Hover like YouTube */
+.yt-item:hover {
   background: #f2f2f2;
 }
 
-/* Icons */
-.sidebar img {
-  width: 24px;
-  height: 24px;
+/* ACTIVE ITEM */
+.yt-item.active {
+  background: #e5e5e5;
+  font-weight: 600;
 }
 
-/* Hide label when collapsed */
-.sidebar.closed p span {
-  display: none;
+.yt-item.active .yt-label {
+  font-weight: 700;
+}
+
+
+/* ICON */
+.yt-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* Collapsed view */
+.yt-sidebar.closed .yt-item {
+  padding: 12px 0;
+  justify-content: center;
+  gap: 0;
+}
+
+.yt-sidebar.closed .yt-label {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Divider */
+.yt-sidebar hr {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  margin: 10px 0;
 }
